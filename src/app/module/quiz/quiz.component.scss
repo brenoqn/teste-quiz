@@ -1,0 +1,93 @@
+::ng-deep {
+  .p-button .p-button-label {
+    display: flow;
+    background: #22c55e;
+  }
+
+  .p-button-secondary {
+    display: flow;
+    text-align: center;
+    width: 100%;
+    height: 4rem;
+  }
+
+  .p-button.p-button-secondary.p-button-text {
+    display: flex;
+  }
+
+  .p-element {
+    width: 100%;
+  }
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 60px;
+  padding: 2rem;
+  gap: 5rem;
+  height: 100vh;
+
+  &__question {
+    width: 100%;
+    height: 20rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    h2 {
+      font-size: 28px;
+    }
+
+    p {
+      font-size: 18px;
+      font-style: italic;
+    }
+
+    strong {
+      color: #475569;
+    }
+
+    .cards {
+      position: relative;
+      height: 100px;
+      overflow: hidden;
+    }
+
+    .card {
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+
+      background-color: white;
+      border: 1px solid #e0e0e0;
+      border-radius: 4px;
+      padding: 10px;
+
+      p,
+      strong {
+        background: #ffff;
+        color: #1e2732;
+      }
+    }
+
+    .card.active {
+      display: block;
+    }
+
+    .navigation {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  &__arrow {
+    display: flex;
+    width: 100%;
+  }
+}

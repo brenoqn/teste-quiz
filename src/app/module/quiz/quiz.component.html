@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="container__title">IG-QUIZ</div>
+  <div class="container__question">
+    <h2>Como funciona?</h2>
+    <div class="cards">
+      <p-card>
+        <div
+          class="card"
+          *ngFor="let item of items; let i = index"
+          [ngClass]="{ active: currentCard === i }"
+        >
+          <p>
+            <strong>{{ item.title }}</strong
+            >:
+            {{ item.description }}
+          </p>
+        </div>
+      </p-card>
+    </div>
+    <div class="navigation">
+      <p-button
+        icon="pi pi-angle-left"
+        styleClass="p-button-rounded p-button-secondary p-button-text p-button-raised"
+        (click)="prevCard()"
+        [disabled]="currentCard === 0"
+      ></p-button>
+      <p-button
+        icon="pi pi-angle-right"
+        styleClass="p-button-rounded p-button-secondary p-button-text p-button-raised"
+        style="display: flex; justify-content: flex-end"
+        (click)="nextCard()"
+        [disabled]="currentCard === items.length - 1"
+      ></p-button>
+    </div>
+    <p><strong>Dica:</strong> Responda com atenção e divirta-se!</p>
+  </div>
+  <div class="container__arrow">
+    <p-button label="Começar" styleClass="p-button-success" (click)="startQuiz()"></p-button>
+  </div>
+</div>
