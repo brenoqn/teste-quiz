@@ -29,6 +29,9 @@
   padding: 2rem;
   gap: 5rem;
   height: 100vh;
+  max-width: 50%;
+  margin-left: auto;
+  margin-right: auto;
 
   &__question {
     width: 100%;
@@ -91,3 +94,14 @@
     width: 100%;
   }
 }
+
+@media (max-width: 768px) {
+  .container {
+    max-width: 100%;
+  }
+}
+
+
+
+
+
