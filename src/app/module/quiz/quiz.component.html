@@ -1,40 +1,64 @@
 <div class="container">
-  <div class="container__title">IG-QUIZ</div>
-  <div class="container__question">
-    <h2>Como funciona?</h2>
-    <div class="cards">
-      <p-card>
-        <div
-          class="card"
-          *ngFor="let item of items; let i = index"
-          [ngClass]="{ active: currentCard === i }"
-        >
-          <p>
-            <strong>{{ item.title }}</strong
-            >:
-            {{ item.description }}
-          </p>
-        </div>
-      </p-card>
-    </div>
-    <div class="navigation">
-      <p-button
-        icon="pi pi-angle-left"
-        styleClass="p-button-rounded p-button-secondary p-button-text p-button-raised"
-        (click)="prevCard()"
-        [disabled]="currentCard === 0"
-      ></p-button>
-      <p-button
-        icon="pi pi-angle-right"
-        styleClass="p-button-rounded p-button-secondary p-button-text p-button-raised"
-        style="display: flex; justify-content: flex-end"
-        (click)="nextCard()"
-        [disabled]="currentCard === items.length - 1"
-      ></p-button>
-    </div>
-    <p><strong>Dica:</strong> Responda com atenção e divirta-se!</p>
+  <div class="container__title">
+    <img
+      src="../../../assets/icons/logo.svg"
+      class="container__title--img"
+      alt=""
+    />
   </div>
+
+  <div class="container__carousel">
+    <div class="container__carousel--card">
+      <div id="carouselIndicators" class="carousel slide">
+        <div class="carousel-indicators">
+          <button
+            type="button"
+            data-bs-target="#carouselIndicators"
+            *ngFor="let item of items; let i = index"
+            [attr.data-bs-slide-to]="i"
+            [class.active]="currentCard === i"
+            [attr.aria-label]="'Slide ' + (i + 1)"
+          ></button>
+        </div>
+        <div class="carousel-inner">
+          <div
+            class="carousel-item"
+            *ngFor="let item of items; let i = index"
+            [ngClass]="{ active: currentCard === i }"
+          >
+            <h2>COMO JOGAR?</h2>
+            <p>
+              <strong>{{ item.title }}:</strong> {{ item.description }}
+            </p>
+          </div>
+        </div>
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#carouselIndicators"
+          data-bs-slide="prev"
+          [disabled]="currentCard === 0"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#carouselIndicators"
+          data-bs-slide="next"
+          [disabled]="currentCard === items.length - 1"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
   <div class="container__arrow">
-    <p-button label="Começar" styleClass="p-button-success" (click)="startQuiz()"></p-button>
+    <button type="button" class="btn btn-success" (click)="constructorQuiz()">
+      VAMOS LÁ?
+    </button>
   </div>
 </div>

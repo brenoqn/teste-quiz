@@ -8,6 +8,13 @@ const routes: Routes = [
       import('./module/quiz/quiz.module').then((m) => m.QuizModule),
   },
   {
+    path: 'constructor',
+    loadChildren: () =>
+      import('./module/quiz-constructor/quiz-constructor.module').then(
+        (m) => m.QuizConstructorModule
+      ),
+  },
+  {
     path: 'questions',
     loadChildren: () =>
       import('./module/quiz-questions/quiz-questions.module').then(

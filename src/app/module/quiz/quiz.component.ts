@@ -10,20 +10,17 @@ export class QuizComponent implements OnInit {
   currentCard: number = 0;
   items = [
     {
-      title: 'Início',
-      description: 'Clique no botão da página inicial para começar.',
-    },
-    {
       title: 'Perguntas',
       description: 'Há questões de Múltipla Escolha e Verdadeiro ou Falso.',
     },
     {
       title: 'Temporizador',
-      description: 'Responda em até 1 minuto. Existem chances de ganhar tempo extra.',
+      description: 'Responda em até 1 minuto.',
     },
     {
       title: 'Feedback',
-      description: 'Receba animações e sons para respostas corretas e incorretas.',
+      description:
+        'Receba animações e sons para respostas corretas e incorretas.',
     },
     {
       title: 'Níveis',
@@ -34,6 +31,7 @@ export class QuizComponent implements OnInit {
       description: 'Veja sua pontuação ao final e jogue novamente se desejar.',
     },
   ];
+
   constructor(private router: Router) {}
 
   ngOnInit() {}
@@ -50,7 +48,7 @@ export class QuizComponent implements OnInit {
     }
   }
 
-  startQuiz() {
-    this.router.navigate(['/questions']);
+  constructorQuiz() {
+    this.router.navigate(['/constructor']);
   }
 }
