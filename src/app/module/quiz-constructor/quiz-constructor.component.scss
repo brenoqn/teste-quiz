@@ -1,18 +1,20 @@
-::ng-deep {
-  .btn-success {
-    width: 52%;
-    height: 5rem;
-    font-size: 30px;
-    border-radius: 40px;
-  }
+:host {
+  ::ng-deep {
+    .btn-success {
+      width: 52%;
+      height: 5rem;
+      font-size: 30px;
+      border-radius: 40px;
+    }
 
-  .btn:hover {
-    background-color: #22c55e;
-    border-color: #22c55e;
-  }
+    .btn:hover {
+      background-color: #22c55e;
+      border-color: #22c55e;
+    }
 
-  .form-select {
-    font-size: 1.3rem;
+    .form-select {
+      font-size: 1.3rem;
+    }
   }
 }
 

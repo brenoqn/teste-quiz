@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -5,8 +6,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { QuizConstructorModule } from './module/quiz-constructor/quiz-constructor.module';
 import { QuizQuestionsModule } from './module/quiz-questions/quiz-questions.module';
+import { QuizResultModule } from './module/quiz-result/quiz-result.module';
 import { QuizModule } from './module/quiz/quiz.module';
-import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent],
@@ -19,6 +20,7 @@ import { HttpClientModule } from '@angular/common/http';
     QuizModule,
     QuizConstructorModule,
     QuizQuestionsModule,
+    QuizResultModule
   ],
   bootstrap: [AppComponent],
 })
