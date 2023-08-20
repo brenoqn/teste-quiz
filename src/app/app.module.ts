@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { QuizConstructorModule } from './module/quiz-constructor/quiz-constructor.module';
 import { QuizQuestionsModule } from './module/quiz-questions/quiz-questions.module';
 import { QuizModule } from './module/quiz/quiz.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent],
@@ -13,6 +14,7 @@ import { QuizModule } from './module/quiz/quiz.module';
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
+    HttpClientModule,
 
     QuizModule,
     QuizConstructorModule,

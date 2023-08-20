@@ -22,51 +22,53 @@
   </div>
 
   <div class="container__inputs">
-    <div class="container__inputs--card">
-      Número de perguntas:
-      <select class="form-select">
-        <option selected>10</option>
-        <option value="1">20</option>
-        <option value="2">30</option>
-      </select>
-    </div>
-    <div class="container__inputs--card">
-      Selecione a categoria:
-      <select class="form-select">
-        <option selected>Conhecimento Geral</option>
-        <option value="1">Filme</option>
-        <option value="2">Música</option>
-        <option value="3">Videogame</option>
-        <option value="3">Política</option>
-        <option value="3">Ciência da Natureza</option>
-        <option value="3">Matemática</option>
-        <option value="3">Geografia</option>
-        <option value="3">História</option>
-        <option value="3">Animais</option>
-      </select>
-    </div>
-    <div class="container__inputs--card">
-      Selecione a dificuldade:
-      <select class="form-select">
-        <option selected>Qualquer dificuldade</option>
-        <option value="1">Fácil</option>
-        <option value="2">Médio</option>
-        <option value="3">Difícil</option>
-      </select>
-    </div>
-    <div class="container__inputs--card">
-      Selecione o tipo:
-      <select class="form-select">
-        <option selected>Qualquer tipo</option>
-        <option value="1">Múltipla Escolha</option>
-        <option value="2">Verdadeiro ou Falso</option>
-      </select>
-    </div>
-  </div>
+    <form [formGroup]="quizForm" (ngSubmit)="goToQuestions()">
+      <div class="container__inputs--card">
+        Número de perguntas:
+        <select formControlName="numberOfQuestions" class="form-select">
+          <option value="10" selected>10</option>
+          <option value="20">20</option>
+          <option value="30">30</option>
+        </select>
+      </div>
 
+      <div class="container__inputs--card">
+        Selecione a categoria:
+        <select formControlName="category" class="form-select">
+          <option selected value="9">Conhecimento Geral</option>
+          <option value="11">Filme</option>
+          <option value="12">Música</option>
+          <option value="15">Videogame</option>
+          <option value="24">Política</option>
+          <option value="17">Ciência da Natureza</option>
+          <option value="19">Matemática</option>
+          <option value="22">Geografia</option>
+          <option value="23">História</option>
+          <option value="27">Animais</option>
+        </select>
+      </div>
+
+      <div class="container__inputs--card">
+        Selecione a dificuldade:
+        <select formControlName="difficulty" class="form-select">
+          <option value="any" selected>Qualquer dificuldade</option>
+          <option value="easy">Fácil</option>
+          <option value="medium">Médio</option>
+          <option value="hard">Difícil</option>
+        </select>
+      </div>
+
+      <div class="container__inputs--card">
+        Selecione o tipo:
+        <select formControlName="type" class="form-select">
+          <option value="any" selected>Qualquer tipo</option>
+          <option value="multiple">Múltipla Escolha</option>
+          <option value="boolean">Verdadeiro ou Falso</option>
+        </select>
+      </div>
+    </form>
+  </div>
   <div class="container__arrow">
-    <button type="button" class="btn btn-success" (click)="goToQuestions()">
-      COMEÇAR
-    </button>
+    <button type="submit" class="btn btn-success" (click)="goToQuestions()">COMEÇAR</button>
   </div>
 </div>
