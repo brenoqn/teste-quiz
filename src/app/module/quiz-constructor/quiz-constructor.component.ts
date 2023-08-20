@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-quiz-constructor',
@@ -6,7 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./quiz-constructor.component.scss'],
 })
 export class QuizConstructorComponent implements OnInit {
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit() {}
+
+  goToQuiz() {
+    this.router.navigate(['/quiz']);
+  }
+
+  goToQuestions() {
+    this.router.navigate(['/questions']);
+  }
 }
