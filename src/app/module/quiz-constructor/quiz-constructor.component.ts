@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { HttpClientService } from '../../services/http-client.service';
+import { QuizService } from '../../services/quiz.service';
 
 @Component({
   selector: 'app-quiz-constructor',
@@ -14,7 +15,8 @@ export class QuizConstructorComponent implements OnInit {
   constructor(
     private router: Router,
     private httpClientService: HttpClientService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private quizService: QuizService
   ) {}
 
   ngOnInit() {
@@ -44,8 +46,8 @@ export class QuizConstructorComponent implements OnInit {
       )
       .subscribe({
         next: (res) => {
-          console.log('next', res);
-          // this.router.navigate(['/questions']);
+          this.quizService.setQuestions(res);
+          this.router.navigate(['/questions']);
         },
         error: (err) => {
           console.error(err);

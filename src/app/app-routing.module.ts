@@ -22,6 +22,13 @@ const routes: Routes = [
       ),
   },
   {
+    path: 'result',
+    loadChildren: () =>
+      import('./module/quiz-result/quiz-result.module').then(
+        (m) => m.QuizResultModule
+      ),
+  },
+  {
     path: '',
     redirectTo: 'quiz',
     pathMatch: 'full',

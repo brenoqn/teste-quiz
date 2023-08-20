@@ -6,7 +6,7 @@
       alt=""
     />
   </div>
-
+  <h2>COMO JOGAR?</h2>
   <div class="container__carousel">
     <div class="container__carousel--card">
       <div id="carouselIndicators" class="carousel slide">
@@ -26,7 +26,6 @@
             *ngFor="let item of items; let i = index"
             [ngClass]="{ active: currentCard === i }"
           >
-            <h2>COMO JOGAR?</h2>
             <p>
               <strong>{{ item.title }}:</strong> {{ item.description }}
             </p>

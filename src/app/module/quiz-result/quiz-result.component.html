@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="container__title">
+    <div class="container__title--logo">
+      <img
+        src="../../../assets/icons/logo.svg"
+        class="container__title--logo--quiz"
+        alt=""
+      />
+    </div>
+  </div>
+
+  <div class="container__results">
+    <div class="container__results--message">
+      <h1>{{ message }}</h1>
+      <h2>{{ result }}</h2>
+    </div>
+    <div class="container__results--button">
+      <button type="button" class="btn btn-secondary" (click)="tryAgain()">Tentar Novamente</button>
+    </div>
+  </div>
+</div>

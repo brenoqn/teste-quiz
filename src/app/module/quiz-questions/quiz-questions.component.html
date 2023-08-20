@@ -1,3 +1,83 @@
-<p>
-  quiz-questions works!
-</p>
+<div class="container">
+  <div class="container__title">
+    <div class="container__title--back">
+      <a
+        (click)="goToConstructor()"
+        class="container__title--back__arrow"
+        style="cursor: pointer"
+      >
+        <img src="../../../assets/icons/arrow-left.svg" alt="" />
+      </a>
+    </div>
+    <div class="container__title--timer">
+      Tempo restante: {{ timeLeft }} segundos
+      <div class="progress">
+        <div
+          class="progress-bar"
+          role="progressbar"
+          [style.width]="(timeLeft / 60) * 100 + '%'"
+        ></div>
+      </div>
+    </div>
+    <div class="container__title--logo">
+      <img
+        src="../../../assets/icons/logo.svg"
+        class="container__title--logo--quiz"
+        alt=""
+      />
+    </div>
+  </div>
+
+  <div class="container__questions">
+    <div class="container__questions--title">
+      {{ currentQuestion?.question }}
+    </div>
+    <div class="container__questions--answers">
+      <div class="input-group" *ngFor="let answer of answers">
+        <div class="input-group-text">
+          <input
+            class="form-check-input mt-0"
+            type="radio"
+            name="answers"
+            [value]="answer"
+            [ngClass]="{
+              'correct-radio':
+                isCorrectAnswer != null &&
+                currentQuestion.correct_answer === answer,
+              'incorrect-radio':
+                isCorrectAnswer === false && selectedAnswer === answer
+            }"
+            (change)="selectAnswer(answer)"
+            [disabled]="isTimeOver"
+          />
+        </div>
+        <input
+          type="text"
+          class="form-control"
+          readonly
+          [value]="answer"
+          [ngClass]="{
+            'correct-answer':
+              isCorrectAnswer != null &&
+              currentQuestion.correct_answer === answer,
+            'incorrect-answer':
+              isCorrectAnswer === false && selectedAnswer === answer
+          }"
+        />
+      </div>
+    </div>
+    <div class="container__questions--buttons">
+      <button
+        type="button"
+        class="btn btn-success"
+        (click)="confirmAnswer()"
+        [disabled]="isTimeOver"
+      >
+        Confirmar
+      </button>
+      <button type="button" class="btn btn-secondary" (click)="nextQuestion()">
+        Próxima pergunta
+      </button>
+    </div>
+  </div>
+</div>
