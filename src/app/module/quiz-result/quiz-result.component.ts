@@ -11,6 +11,7 @@ export class QuizResultComponent implements OnInit {
   totalQuestions: number = 0;
   message: string = '';
   result: string = '';
+  congratulationsSound = new Audio('../../../assets/audio/congratulations.mp3');
 
   constructor(private route: ActivatedRoute, private router: Router) {
     this.route.queryParams.subscribe((params) => {
@@ -20,23 +21,22 @@ export class QuizResultComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.congratulationsSound.play();
     this.route.queryParamMap.subscribe((params) => {
-      console.log('this.totalQuestions',this.totalQuestions)
-      this.result = `Você acertou ${this.score} de ${this.totalQuestions} questões.`;
+      this.result = `You got ${this.score} out of ${this.totalQuestions} questions right.`;
       const percentageCorrect = (this.score / this.totalQuestions) * 100;
       if (percentageCorrect === 0) {
-        this.message = 'Que pena! Você não acertou nenhuma. Tente novamente.';
+        this.message = 'Too bad! You did not get any right. Try again.';
       } else if (percentageCorrect <= 20) {
-        this.message =
-          'Você acertou poucas! Continue tentando, você está melhorando.';
+        this.message = 'You got a few right! Keep trying, you are getting better.';
       } else if (percentageCorrect <= 50) {
-        this.message = 'Ótimo trabalho! Você acertou metade das perguntas!';
+        this.message = 'Great job! You got half the questions right!';
       } else if (percentageCorrect <= 70) {
-        this.message = 'Incrível! Você acertou mais da metade! Quase lá!';
+        this.message = 'Amazing! You got over half right! Almost there!';
       } else if (percentageCorrect === 100) {
-        this.message = 'Perfeito! Você acertou todas as perguntas!';
+        this.message = 'Perfect! You got all the questions right!';
       } else {
-        this.message = 'Você está indo bem! Continue assim!';
+        this.message = 'You are doing well! Keep it up!';
       }
     });
   }

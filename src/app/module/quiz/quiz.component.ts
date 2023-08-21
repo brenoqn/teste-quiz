@@ -10,25 +10,25 @@ export class QuizComponent implements OnInit {
   currentCard: number = 0;
   items = [
     {
-      title: 'Perguntas',
-      description: 'Há questões de Múltipla Escolha e Verdadeiro ou Falso.',
+      title: 'Questions',
+      description: 'There are Multiple Choice and True or False questions.',
     },
     {
-      title: 'Temporizador',
-      description: 'Responda em até 1 minuto.',
+      title: 'Timer',
+      description: 'Answer within 1 minute.',
     },
     {
       title: 'Feedback',
       description:
-        'Receba animações e sons para respostas corretas e incorretas.',
+        'Receive animations and sounds for correct and incorrect answers.',
     },
     {
-      title: 'Níveis',
-      description: 'As perguntas variam em dificuldade e categorias.',
+      title: 'Levels',
+      description: 'Questions vary in difficulty and categories.',
     },
     {
-      title: 'Pontuação',
-      description: 'Veja sua pontuação ao final e jogue novamente se desejar.',
+      title: 'Scoring',
+      description: 'See your score at the end and play again if you wish.',
     },
   ];
 

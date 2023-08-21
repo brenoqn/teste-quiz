@@ -19,18 +19,19 @@ export class QuizQuestionsComponent implements OnInit {
   selectedAnswer: string | null = null;
   isCorrectAnswer: boolean | null = null;
   isTimeOver: boolean = false;
-  hitSound = new Audio('../../../assets/audio/Tympani Bing.mp3');
-  errorSound = new Audio(
-    '../../../assets/audio/Concussive Hit Guitar Boing.mp3'
-  );
+  correctSound = new Audio('../../../assets/audio/correct.mp3');
+  errorSound = new Audio('../../../assets/audio/error.mp3');
+  timeSound = new Audio('../../../assets/audio/tic-tac.mp3');
 
   constructor(private router: Router, private quizService: QuizService) {
     this.quizService.questions$.subscribe((questions) => {
-      if (questions) {
-        this.questions = questions.results;
-        this.totalQuestions = this.questions.length;
-        this.nextQuestion();
+      if (!questions || questions.results.length === 0) {
+        this.router.navigate(['/constructor']);
+        return;
       }
+      this.questions = questions.results;
+      this.totalQuestions = this.questions.length;
+      this.nextQuestion();
     });
   }
 
@@ -43,9 +44,13 @@ export class QuizQuestionsComponent implements OnInit {
       .pipe(take(this.timeLeft))
       .subscribe(() => {
         this.timeLeft--;
+        if (this.timeLeft === 10) {
+          this.timeSound.play();
+        }
         if (this.timeLeft === 0) {
           this.isTimeOver = true;
           this.stopTimer();
+          this.errorSound.play();
         }
       });
   }
@@ -70,7 +75,7 @@ export class QuizQuestionsComponent implements OnInit {
     this.stopTimer();
     if (this.selectedAnswer === this.currentQuestion.correct_answer) {
       this.isCorrectAnswer = true;
-      this.hitSound.play();
+      this.correctSound.play();
       this.score++;
     } else {
       this.isCorrectAnswer = false;

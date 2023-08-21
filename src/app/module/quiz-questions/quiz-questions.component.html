@@ -10,7 +10,7 @@
       </a>
     </div>
     <div class="container__title--timer">
-      Tempo restante: {{ timeLeft }} segundos
+      Time remaining: {{ timeLeft }} seconds
       <div class="progress">
         <div
           class="progress-bar"
@@ -73,10 +73,10 @@
         (click)="confirmAnswer()"
         [disabled]="isTimeOver"
       >
-        Confirmar
+        Confirm
       </button>
       <button type="button" class="btn btn-secondary" (click)="nextQuestion()">
-        Próxima pergunta
+        Next question
       </button>
     </div>
   </div>

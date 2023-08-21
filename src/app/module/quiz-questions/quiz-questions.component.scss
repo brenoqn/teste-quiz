@@ -118,3 +118,105 @@
     }
   }
 }
+
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+  .container {
+    padding: 1.5rem;
+    font-size: 40px;
+
+    &__title {
+      height: 12%;
+
+      &--timer {
+        font-size: 50%;
+      }
+
+      &--logo {
+        &__quiz {
+          width: 50%;
+        }
+      }
+    }
+
+    &__questions {
+      height: 30rem;
+      font-size: 25px;
+
+      &--title {
+        font-size: 28px;
+        padding: 1.5rem;
+      }
+
+      &--answers {
+        .input-group {
+          height: 3.5rem;
+        }
+      }
+    }
+  }
+
+  ::ng-deep {
+    .btn-success,
+    .btn-secondary {
+      width: 35%;
+      height: 4rem;
+      font-size: 24px;
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .container {
+    padding: 1rem;
+    font-size: 30px;
+    justify-content: space-evenly;
+
+    &__title {
+      height: 7%;
+
+      &--back {
+        img {
+          width: 48px;
+        }
+      }
+
+      &--timer {
+        font-size: 40%;
+      }
+
+      &--logo {
+        display: flex;
+        width: 23%;
+        &__quiz {
+          width: 100%;
+        }
+      }
+    }
+
+    &__questions {
+      height: 30rem;
+
+      &--title {
+        font-size: 20px;
+        padding: 1rem;
+      }
+
+      &--answers {
+        .input-group {
+          height: 3rem;
+        }
+      }
+    }
+  }
+
+  :host {
+    ::ng-deep {
+      .btn-success,
+      .btn-secondary {
+        width: 40%;
+        height: 3rem;
+        font-size: 12px;
+      }
+    }
+  }
+}
