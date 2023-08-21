@@ -56,45 +56,6 @@
   }
 }
 
-// @media only screen and (min-width: 601px) and (max-width: 1024px) {
-//   .container {
-//     padding: 1.5rem;
-//     justify-content: space-evenly;
-
-//     &__title {
-//       height: 18%;
-//       &--logo {
-//         &__quiz {
-//           width: 50%;
-//         }
-//       }
-//     }
-
-//     &__results {
-//       height: 30rem;
-//       padding: 2rem;
-
-//       &--message {
-//         h1,
-//         h2 {
-//           font-size: 28px;
-//         }
-//       }
-
-//       &--button {
-//         height: 4rem;
-//       }
-//     }
-//   }
-
-//   ::ng-deep {
-//     .btn-secondary {
-//       width: 35%;
-//       height: 4rem;
-//       font-size: 24px;
-//     }
-//   }
-// }
 
 @media only screen and (max-width: 600px) {
   .container {
@@ -111,13 +72,14 @@
     }
 
     &__results {
+      height: 25rem;
       &--message {
         text-align: center;
         gap: 1rem;
 
         h1,
         h2 {
-          font-size: 30px;
+          font-size: 27px;
         }
       }
     }

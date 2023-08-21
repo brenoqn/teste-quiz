@@ -162,8 +162,10 @@
 
 @media only screen and (min-width: 601px) and (max-width: 1024px) {
   .container {
-    padding: 1.5rem;
-    gap: 1.5rem;
+    justify-content: space-around;
+    height: 95vh;
+    padding: 1rem;
+    gap: 1rem;
 
     &__title {
       &--img {
@@ -212,9 +214,10 @@
 
 @media only screen and (max-width: 600px) {
   .container {
+    justify-content: space-around;
+    height: 95vh;
     padding: 1rem;
     gap: 1rem;
-    justify-content: space-around;
 
     &__title {
       &--img {
