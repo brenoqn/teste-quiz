@@ -11,7 +11,7 @@ export class QuizResultComponent implements OnInit {
   totalQuestions: number = 0;
   message: string = '';
   result: string = '';
-  congratulationsSound = new Audio('../../../assets/audio/congratulations.mp3');
+  congratulationsSound: HTMLAudioElement = new Audio('../../../assets/audio/congratulations.mp3');
 
   constructor(private route: ActivatedRoute, private router: Router) {
     this.route.queryParams.subscribe((params) => {
