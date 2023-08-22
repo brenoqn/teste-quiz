@@ -1,27 +1,12 @@
-# TesteQuiz
+#TesteQuiz
+Este projeto foi gerado com a versão 15.2.6 do Angular CLI.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.6.
+##Servidor de desenvolvimento
+Você pode acessar o projeto através do servidor onde foi carregado, usando a URL https://teste-quiz.vercel.app/quiz. Se preferir, você também pode rodar o projeto localmente. Para isso, execute ng serve e acesse http://localhost:4200/.
 
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+##Estrutura de código
+Neste projeto, utilizei a estruturação de HTML e SCSS com uma metodologia que conheço e considero bastante organizada, chamada BEM. Você pode saber mais sobre essa estrutura no site sobre BEM (https://desenvolvimentoparaweb.com/css/bem/). 
+Realizei testes unitários e desenvolvi serviços para o consumo da API Open Trivia Database. Também criei serviços para gerenciar o estado dos valores do score e o total de perguntas. Utilizei áudios para indicar quando o usuário acertou ou errou uma questão e também quando estava prestes a finalizar o tempo para selecionar a resposta correta.
+Como desenvolvedor, gosto de componentizar e modular os componentes, seguindo as estruturas básicas do próprio Angular. Esse estilo de codificação facilita a manutenção e a compreensão do código.
+Para as perguntas do quiz, fiz o consumo da API Open Trivia Database, que me proporcionou perguntas de diferentes categorias, graus de dificuldade, quantidade e tipos, seja de múltipla escolha ou verdadeiro/falso.
+Contudo, a API possui alguns "problemas": por ser uma API que não controlo, algumas perguntas vêm com caracteres especiais e números no meio de uma palavra, atrapalhando o entendimento total da frase. Outro ponto é que a API possui perguntas apenas em inglês. Tomei a decisão de deixar todo o projeto em inglês, oferecendo a possibilidade de tradução pelo Google Translate no navegador.
