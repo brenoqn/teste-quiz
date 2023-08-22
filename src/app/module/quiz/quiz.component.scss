@@ -162,11 +162,10 @@
 
 @media only screen and (min-width: 601px) and (max-width: 1024px) {
   .container {
-    justify-content: space-around;
+    justify-content: space-evenly;
     height: 100vh;
     padding: 1rem;
-    gap: 1rem;
-
+    gap: 0rem;
     &__title {
       &--img {
         width: 50%;
@@ -214,10 +213,10 @@
 
 @media only screen and (max-width: 600px) {
   .container {
-    justify-content: space-around;
+    justify-content: space-evenly;
     height: 100vh;
     padding: 1rem;
-    gap: 1rem;
+    gap: 0rem;
 
     &__title {
       &--img {

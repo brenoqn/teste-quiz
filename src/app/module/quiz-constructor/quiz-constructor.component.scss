@@ -73,6 +73,7 @@
     height: 100vh;
     font-size: 30px;
     margin: 0;
+    justify-content: space-evenly;
 
     &__title {
       &--back {
@@ -94,6 +95,7 @@
   .container {
     padding: 3rem;
     height: 100vh;
+    justify-content: space-evenly;
 
     &__title {
       display: flex;
