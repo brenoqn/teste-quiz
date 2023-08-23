@@ -40,9 +40,9 @@
     height: 10%;
     width: 100%;
 
-    &--logo {
+    &--pause {
       display: flex;
-      width: 10%;
+      width: 15%;
 
       &__quiz {
         width: 30%;
@@ -131,7 +131,7 @@
         font-size: 50%;
       }
 
-      &--logo {
+      &--pause {
         &__quiz {
           width: 50%;
         }
@@ -184,7 +184,7 @@
         font-size: 40%;
       }
 
-      &--logo {
+      &--pause {
         display: flex;
         width: 23%;
         &__quiz {

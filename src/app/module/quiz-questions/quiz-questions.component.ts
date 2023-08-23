@@ -19,6 +19,7 @@ export class QuizQuestionsComponent implements OnInit {
   selectedAnswer: string | null = null;
   isCorrectAnswer: boolean | null = null;
   isTimeOver: boolean = false;
+  isPaused: boolean = false;
   correctSound = new Audio('../../../assets/audio/correct.mp3');
   errorSound = new Audio('../../../assets/audio/error.mp3');
   timeSound = new Audio('../../../assets/audio/tic-tac.mp3');
@@ -37,22 +38,56 @@ export class QuizQuestionsComponent implements OnInit {
 
   ngOnInit() {}
 
+  ngOnDestroy() {
+    this.stopAllSounds();
+    if (this.timer$) {
+      this.timer$.unsubscribe();
+    }
+  }
+
   startTimer() {
     if (this.timer$) this.timer$.unsubscribe();
-    this.timeLeft = 60;
     this.timer$ = interval(1000)
       .pipe(take(this.timeLeft))
       .subscribe(() => {
-        this.timeLeft--;
-        if (this.timeLeft === 10) {
-          this.timeSound.play();
-        }
-        if (this.timeLeft === 0) {
-          this.isTimeOver = true;
-          this.stopTimer();
-          this.errorSound.play();
+        if (!this.isPaused) {
+          this.timeLeft--;
+          if (this.timeLeft === 10 && !this.isPaused) {
+            this.timeSound.play();
+          }
+          if (this.timeLeft === 0) {
+            this.isTimeOver = true;
+            this.stopTimer();
+            this.errorSound.play();
+          }
         }
       });
+  }
+
+  stopTimer() {
+    if (this.timer$) {
+      this.timer$.unsubscribe();
+      this.timeSound.pause();
+      this.timeSound.currentTime = 0;
+    }
+  }
+
+  togglePause() {
+    if (this.isPaused) {
+      this.startTimer();
+    } else {
+      this.stopTimer();
+    }
+    this.isPaused = !this.isPaused;
+  }
+
+  stopAllSounds() {
+    this.correctSound.pause();
+    this.correctSound.currentTime = 0;
+    this.errorSound.pause();
+    this.errorSound.currentTime = 0;
+    this.timeSound.pause();
+    this.timeSound.currentTime = 0;
   }
 
   shuffleAnswers(correct: string, incorrect: string[]): string[] {
@@ -63,12 +98,6 @@ export class QuizQuestionsComponent implements OnInit {
   selectAnswer(answer: string) {
     this.selectedAnswer = answer;
     this.isCorrectAnswer = null;
-  }
-
-  stopTimer() {
-    if (this.timer$) {
-      this.timer$.unsubscribe();
-    }
   }
 
   confirmAnswer() {
@@ -85,6 +114,7 @@ export class QuizQuestionsComponent implements OnInit {
 
   nextQuestion() {
     if (this.questions.length === 0) {
+      this.stopAllSounds();
       this.router.navigate(['/result'], {
         queryParams: { score: this.score, totalQuestions: this.totalQuestions },
       });
@@ -97,10 +127,12 @@ export class QuizQuestionsComponent implements OnInit {
     );
     this.selectedAnswer = null;
     this.isCorrectAnswer = null;
+    this.timeLeft = 60;
     this.startTimer();
   }
 
   goToConstructor() {
     this.router.navigate(['/constructor']);
+    this.stopAllSounds();
   }
 }

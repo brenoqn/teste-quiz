@@ -18,13 +18,13 @@
           [style.width]="(timeLeft / 60) * 100 + '%'"
         ></div>
       </div>
+
     </div>
-    <div class="container__title--logo">
-      <img
-        src="../../../assets/icons/logo.svg"
-        class="container__title--logo--quiz"
-        alt=""
-      />
+    <div class="container__title--pause">
+      <button type="button" class="btn btn-secondary" (click)="togglePause()" style="width: 100%;">
+        <i [ngClass]="isPaused ? 'bi bi-play-circle-fill' : 'bi bi-pause-circle-fill'" style="background-color: transparent;"></i>
+        {{ isPaused ? "Continue" : "Pause" }}
+      </button>
     </div>
   </div>
 
