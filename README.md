@@ -11,6 +11,10 @@ Certifique-se de ter as seguintes ferramentas instaladas em seu ambiente de dese
 * Node.js (versão 12 ou superior)
 * Angular CLI (15 ou superior)
 
+## Ambiente 
+
+Acesse a URL do projeto em (https://teste-quiz.vercel.app/quiz).
+
 ## Iniciando o projeto
 
 Clone este repositório para o diretório desejado em sua máquina:
@@ -37,7 +41,7 @@ Para iniciar o servidor de desenvolvimento, execute:
 ng serve
 ```
 
-O servidor estará disponível no endereço http://localhost:4200/. Ou acesse a URL do projeto em (https://teste-quiz.vercel.app/quiz).
+O servidor estará disponível no endereço http://localhost:4200/.
 
 ## Estrutura de código
 
