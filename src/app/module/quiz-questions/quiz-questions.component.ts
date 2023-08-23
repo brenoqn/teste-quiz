@@ -115,6 +115,7 @@ export class QuizQuestionsComponent implements OnInit {
   nextQuestion() {
     if (this.questions.length === 0) {
       this.stopAllSounds();
+      this.stopTimer();
       this.router.navigate(['/result'], {
         queryParams: { score: this.score, totalQuestions: this.totalQuestions },
       });
@@ -132,7 +133,8 @@ export class QuizQuestionsComponent implements OnInit {
   }
 
   goToConstructor() {
-    this.router.navigate(['/constructor']);
     this.stopAllSounds();
+    this.stopTimer();
+    this.router.navigate(['/constructor']);
   }
 }

@@ -18,11 +18,20 @@
           [style.width]="(timeLeft / 60) * 100 + '%'"
         ></div>
       </div>
-
     </div>
     <div class="container__title--pause">
-      <button type="button" class="btn btn-secondary" (click)="togglePause()" style="width: 100%;">
-        <i [ngClass]="isPaused ? 'bi bi-play-circle-fill' : 'bi bi-pause-circle-fill'" style="background-color: transparent;"></i>
+      <button
+        type="button"
+        class="btn btn-secondary"
+        (click)="togglePause()"
+        style="width: 100%"
+      >
+        <i
+          [ngClass]="
+            isPaused ? 'bi bi-play-circle-fill' : 'bi bi-pause-circle-fill'
+          "
+          style="background-color: transparent"
+        ></i>
         {{ isPaused ? "Continue" : "Pause" }}
       </button>
     </div>
@@ -71,7 +80,7 @@
         type="button"
         class="btn btn-success"
         (click)="confirmAnswer()"
-        [disabled]="isTimeOver"
+        [disabled]="isTimeOver || selectedAnswer == null"
       >
         Confirm
       </button>

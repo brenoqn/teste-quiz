@@ -12,8 +12,8 @@ export class HttpClientService {
   getQuestions(
     numberOfQuestions: number,
     category?: number,
-    difficulty?: string,
-    type?: string
+    difficulty?: string | null,
+    type?: string | null
   ) {
     let url = `${this.baseUrl}amount=${numberOfQuestions}`;
 

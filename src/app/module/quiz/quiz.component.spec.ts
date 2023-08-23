@@ -1,9 +1,11 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { QuizComponent } from './quiz.component';
+import { Router } from '@angular/router';
 
 describe('QuizComponent', () => {
   let component: QuizComponent;
   let fixture: ComponentFixture<QuizComponent>;
+  let router: Router;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -15,6 +17,7 @@ describe('QuizComponent', () => {
     fixture = TestBed.createComponent(QuizComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
+    router = TestBed.inject(Router);
   });
 
   it('should create', () => {
@@ -43,5 +46,11 @@ describe('QuizComponent', () => {
     component.currentCard = 0;
     component.prevCard();
     expect(component.currentCard).toEqual(0);
+  });
+
+  it('should navigate to constructor', () => {
+    const spy = spyOn(router, 'navigate');
+    component.constructorQuiz();
+    expect(spy).toHaveBeenCalledWith(['/constructor']);
   });
 });
