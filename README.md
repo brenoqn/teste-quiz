@@ -53,7 +53,10 @@ Para as perguntas do quiz, fiz o consumo da API Open Trivia Database, que me pro
 
 ## Testes Unitários
 
-O projeto foi desenvolvido e projetado com cobertura de testes unitários em Jasmine com um coverage de pelo menos 85% ou mais em todos os COMPONENTES.
+O projeto foi desenvolvido e projetado com cobertura de testes unitários em Jasmine com um coverage de pelo menos 70% ou mais em todos os COMPONENTES.
+
+![image](https://github.com/brenoqn/teste-quiz/assets/98334393/54baa206-afdb-4756-94f6-360c3d40df18)
+
 
 Para executar os testes e mostrar o coverage utilize o comando:
 
